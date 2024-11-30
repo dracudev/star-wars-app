@@ -1,11 +1,22 @@
+import { useDispatch } from "react-redux";
+import { Header } from "../components/Header";
 import "./App.css";
+import { useEffect } from "react";
+import { addUser } from "../redux/userSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users/1")
+      .then((response) => response.json())
+      .then((data) => dispatch(addUser(data)))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <>
-      <h1 className="text-3xl font-bold text-sky-700 underline decoration-fuchsia-900">
-        Hello world!
-      </h1>
+      <Header></Header>
     </>
   );
 }
