@@ -4,4 +4,11 @@ interface UserState {
   email: string;
 }
 
-export type { UserState };
+interface StarshipState {
+  starships: any[];
+  nextPage: string | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export type { UserState, StarshipState };

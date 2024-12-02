@@ -1,11 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-interface StarshipState {
-  starships: any[];
-  nextPage: string | null;
-  loading: boolean;
-  error: string | null;
-}
+import { StarshipState } from "../types/types";
 
 const initialState: StarshipState = {
   starships: [],
