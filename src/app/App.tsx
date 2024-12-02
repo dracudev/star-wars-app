@@ -1,28 +1,16 @@
 import { useDispatch } from "react-redux";
 import "./App.css";
 import { useEffect } from "react";
-import { addStarships } from "../redux/starshipSlice";
-
+import { fetchStarships } from "../redux/starshipSlice";
+import { AppDispatch } from "../redux/store";
 import Navbar from "../components/Navbar";
 import Starships from "./pages/Starships/index";
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const fetchInitialStarships = async () => {
-      try {
-        const response = await fetch("https://swapi.dev/api/starships/?page=1");
-        const data = await response.json();
-        dispatch(
-          addStarships({ starships: data.results, nextPage: data.next }),
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchInitialStarships();
+    dispatch(fetchStarships("https://swapi.dev/api/starships/?page=1"));
   }, [dispatch]);
 
   return (

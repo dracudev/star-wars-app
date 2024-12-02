@@ -1,26 +1,18 @@
 import { Card } from "../../../components/Card";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { addStarships } from "../../../redux/starshipSlice";
-import { useState } from "react";
+import { AppDispatch, RootState } from "../../../redux/store";
+import { fetchStarships } from "../../../redux/starshipSlice";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Starships() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const starships = useSelector((state: RootState) => state.starship.starships);
   const nextPage = useSelector((state: RootState) => state.starship.nextPage);
-  const [loading, setLoading] = useState(false);
+  const loading = useSelector((state: RootState) => state.starship.loading);
 
   const fetchNextPage = async () => {
-    if (!nextPage) return;
-    setLoading(true);
-    try {
-      const response = await fetch(nextPage);
-      const data = await response.json();
-      dispatch(addStarships({ starships: data.results, nextPage: data.next }));
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
+    if (nextPage) {
+      dispatch(fetchStarships(nextPage));
     }
   };
 
@@ -29,7 +21,7 @@ export default function Starships() {
       {starships.length > 0 ? (
         <>
           {starships.map((starship) => (
-            <Card key={starship.name}>
+            <Card key={uuidv4()}>
               <h2>{starship.name}</h2>
               <h3>{starship.model}</h3>
             </Card>
