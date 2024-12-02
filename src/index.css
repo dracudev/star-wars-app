@@ -89,6 +89,7 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -124,4 +125,10 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+div#root {
+  background-color: #0c0c0c;
+  color: white;
+  width: 100%;
 }

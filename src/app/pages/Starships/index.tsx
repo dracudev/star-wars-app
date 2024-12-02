@@ -17,7 +17,7 @@ export default function Starships() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c] p-4">
       {starships.length > 0 ? (
         <>
           {starships.map((starship) => (
