@@ -1,22 +1,34 @@
 import { useDispatch } from "react-redux";
-import { Header } from "../components/Header";
 import "./App.css";
 import { useEffect } from "react";
-import { addUser } from "../redux/userSlice";
+import { addStarships } from "../redux/starshipSlice";
+
+import Navbar from "../components/Navbar";
+import Starships from "./pages/Starships/index";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users/1")
-      .then((response) => response.json())
-      .then((data) => dispatch(addUser(data)))
-      .catch((error) => console.log(error));
-  }, []);
+    const fetchInitialStarships = async () => {
+      try {
+        const response = await fetch("https://swapi.dev/api/starships/?page=1");
+        const data = await response.json();
+        dispatch(
+          addStarships({ starships: data.results, nextPage: data.next }),
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchInitialStarships();
+  }, [dispatch]);
 
   return (
     <>
-      <Header></Header>
+      <Navbar />
+      <Starships />
     </>
   );
 }

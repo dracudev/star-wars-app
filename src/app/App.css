@@ -1,0 +1,5 @@
+body {
+  @apply flex items-center justify-center;
+  background-color: black;
+  color: white;
+}
