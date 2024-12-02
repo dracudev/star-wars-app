@@ -15,13 +15,8 @@ function App() {
 
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
-
-      <section className="flex items-center justify-center">
-        <Starships />
-      </section>
+      <Navbar />
+      <Starships />
     </>
   );
 }

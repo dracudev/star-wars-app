@@ -17,13 +17,13 @@ export default function Starships() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center p-4">
       {starships.length > 0 ? (
         <>
           {starships.map((starship) => (
             <Card key={uuidv4()}>
-              <h2>{starship.name}</h2>
-              <h3>{starship.model}</h3>
+              <h2 className="mb-2 text-xl font-medium">{starship.name}</h2>
+              <h3 className="font-thin">{starship.model}</h3>
             </Card>
           ))}
           {nextPage && (

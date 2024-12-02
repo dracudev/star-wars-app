@@ -1,9 +1,14 @@
 import { ReactNode } from "react";
+import { type FC } from "react";
 
 interface CardProps {
   children: ReactNode;
 }
 
-export function Card({ children }: CardProps) {
-  return <div className="m-2 bg-[#2b2b2b99] p-5 shadow-xl">{children}</div>;
-}
+export const Card: FC<CardProps> = ({ children }) => {
+  return (
+    <div className="mb-5 w-full max-w-4xl bg-[#2b2b2b99] p-4 shadow-xl">
+      {children}
+    </div>
+  );
+};

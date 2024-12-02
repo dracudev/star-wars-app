@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 interface StarshipState {
   starships: any[];
@@ -19,10 +19,13 @@ export const fetchStarships = createAsyncThunk(
   async (url: string, { rejectWithValue }) => {
     try {
       const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
       const data = await response.json();
       return { starships: data.results, nextPage: data.next };
     } catch (error) {
-      return rejectWithValue("An unknown error occurred");
+      return rejectWithValue("An unknown error occured");
     }
   },
 );
@@ -30,15 +33,7 @@ export const fetchStarships = createAsyncThunk(
 const starshipSlice = createSlice({
   name: "starship",
   initialState,
-  reducers: {
-    addStarships(
-      state,
-      action: PayloadAction<{ starships: any[]; nextPage: string | null }>,
-    ) {
-      state.starships = [...state.starships, ...action.payload.starships];
-      state.nextPage = action.payload.nextPage;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchStarships.pending, (state) => {
@@ -57,5 +52,5 @@ const starshipSlice = createSlice({
   },
 });
 
-export const { addStarships } = starshipSlice.actions;
+export const {} = starshipSlice.actions;
 export default starshipSlice.reducer;
