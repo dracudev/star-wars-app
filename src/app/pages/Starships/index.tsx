@@ -17,7 +17,7 @@ export default function Starships() {
   };
 
   return (
-    <>
+    <div>
       {starships.length > 0 ? (
         <>
           {starships.map((starship) => (
@@ -35,6 +35,6 @@ export default function Starships() {
       ) : (
         <p>Loading starships...</p>
       )}
-    </>
+    </div>
   );
 }

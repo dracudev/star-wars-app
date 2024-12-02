@@ -1,5 +1,5 @@
-body {
-  @apply flex items-center justify-center;
-  background-color: black;
+div#root {
+  background-color: rgb(27, 26, 26);
   color: white;
+  width: 100%;
 }
