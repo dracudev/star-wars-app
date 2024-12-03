@@ -17,9 +17,17 @@ export const fetchStarships = createAsyncThunk(
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      return { starships: data.results, nextPage: data.next };
+
+      const starshipsImages = await Promise.all(
+        data.results.map(async (starship: any) => {
+          const id = starship.url.split("/").slice(-2, -1)[0];
+          const imageUrl = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
+          return { ...starship, id, imageUrl };
+        }),
+      );
+      return { starships: starshipsImages, nextPage: data.next };
     } catch (error) {
-      return rejectWithValue("An unknown error occured");
+      return rejectWithValue("An unknown error occurred");
     }
   },
 );

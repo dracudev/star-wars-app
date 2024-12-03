@@ -35,10 +35,9 @@ export default function Starships() {
           {starships.map((starship) => (
             <Card
               className="cursor-pointer"
-              key={starship.url}
-              onClick={() =>
-                handleCardClick(starship.url.split("/").slice(-2, -1)[0])
-              }
+              key={starship.id}
+              onClick={() => handleCardClick(starship.id)}
+              imageSrc={starship.imageUrl}
             >
               <h2 className="mb-2 text-xl font-medium">{starship.name}</h2>
               <h3 className="font-thin">{starship.model}</h3>

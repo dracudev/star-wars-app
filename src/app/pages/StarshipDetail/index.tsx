@@ -1,21 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { Card } from "../../../components/Card";
-import imagen from "../../../assets/img.jpg";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 export default function StarshipDetail() {
   const { id } = useParams<{ id: string }>();
-  const [starship, setStarship] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchStarship = async () => {
-      const response = await fetch(`https://swapi.dev/api/starships/${id}/`);
-      const data = await response.json();
-      setStarship(data);
-    };
-
-    fetchStarship();
-  }, [id]);
+  const starship = useSelector((state: RootState) =>
+    state.starship.starships.find((starship) => starship.id === id),
+  );
 
   if (!starship) {
     return (
@@ -27,7 +19,7 @@ export default function StarshipDetail() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-items-start bg-[#0c0c0c] p-4">
-      <Card imageSrc={imagen}>
+      <Card imageSrc={starship.imageUrl}>
         <h1 className="mb-2 text-3xl font-bold text-white">{starship.name}</h1>
         <p className="mb-8 font-thin">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam assumenda
