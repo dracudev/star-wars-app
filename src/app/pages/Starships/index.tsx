@@ -34,6 +34,7 @@ export default function Starships() {
         <>
           {starships.map((starship) => (
             <Card
+              className="cursor-pointer"
               key={starship.url}
               onClick={() =>
                 handleCardClick(starship.url.split("/").slice(-2, -1)[0])
