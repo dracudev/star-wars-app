@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function Navbar() {
@@ -13,12 +14,16 @@ export default function Navbar() {
 
       <div className="flex h-12 w-full items-center justify-center border-y-2 border-solid border-y-zinc-800">
         <ul className="flex h-full w-full items-center justify-center">
-          <li className="flex h-full items-center justify-center border-l-2 border-solid border-l-zinc-800 px-4 py-2">
-            Home
-          </li>
-          <li className="flex h-full items-center justify-center border-x-2 border-solid border-x-zinc-800 px-4 py-2">
-            Starships
-          </li>
+          <Link to="/">
+            <li className="flex h-full items-center justify-center border-l-2 border-solid border-l-zinc-800 px-4 py-2">
+              Home
+            </li>
+          </Link>
+          <Link to="/starships">
+            <li className="flex h-full items-center justify-center border-x-2 border-solid border-x-zinc-800 px-4 py-2">
+              Starships
+            </li>
+          </Link>
         </ul>
       </div>
     </nav>

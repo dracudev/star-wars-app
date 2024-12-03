@@ -1,23 +1,20 @@
-import { useDispatch } from "react-redux";
 import "./App.css";
-import { useEffect } from "react";
-import { fetchStarships } from "../redux/starshipSlice";
-import { AppDispatch } from "../redux/store";
 import Navbar from "../components/Navbar";
 import Starships from "./pages/Starships/index";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import StarshipDetail from "./pages/StarshipDetail";
 
 function App() {
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(fetchStarships("https://swapi.dev/api/starships/?page=1"));
-  }, [dispatch]);
-
   return (
-    <>
+    <Router>
       <Navbar />
-      <Starships />
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/starships" element={<Starships />} />
+        <Route path="/starships/:id" element={<StarshipDetail />} />
+      </Routes>
+    </Router>
   );
 }
 
