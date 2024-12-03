@@ -1,32 +1,10 @@
 import { Card } from "../../../components/Card";
-import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../../../redux/store";
-import { fetchStarships } from "../../../redux/starshipSlice";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useFetchStarships } from "../../../hooks/useFetchStarships";
+import { useNavigateStarships } from "../../../hooks/useNavigateStarships";
 
 export default function Starships() {
-  const dispatch = useDispatch<AppDispatch>();
-  const starships = useSelector((state: RootState) => state.starship.starships);
-  const nextPage = useSelector((state: RootState) => state.starship.nextPage);
-  const loading = useSelector((state: RootState) => state.starship.loading);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (starships.length === 0) {
-      dispatch(fetchStarships("https://swapi.dev/api/starships/?page=1"));
-    }
-  }, [dispatch, starships.length]);
-
-  const fetchNextPage = async () => {
-    if (nextPage) {
-      dispatch(fetchStarships(nextPage));
-    }
-  };
-
-  const handleCardClick = (id: string) => {
-    navigate(`/starships/${id}`);
-  };
+  const { starships, nextPage, loading, fetchNextPage } = useFetchStarships();
+  const { handleCardClick } = useNavigateStarships();
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c] p-4">
