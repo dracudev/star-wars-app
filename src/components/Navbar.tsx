@@ -16,12 +16,12 @@ export default function Navbar() {
         <ul className="flex h-full w-full items-center justify-center">
           <Link to="/">
             <li className="flex h-full items-center justify-center border-l-2 border-solid border-l-zinc-800 px-4 py-2">
-              Home
+              HOME
             </li>
           </Link>
           <Link to="/starships">
             <li className="flex h-full items-center justify-center border-x-2 border-solid border-x-zinc-800 px-4 py-2">
-              Starships
+              STARSHIPS
             </li>
           </Link>
         </ul>

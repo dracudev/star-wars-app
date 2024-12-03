@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Card } from "../../../components/Card";
 
 export default function StarshipDetail() {
   const { id } = useParams<{ id: string }>();
@@ -16,32 +17,36 @@ export default function StarshipDetail() {
   }, [id]);
 
   if (!starship) {
-    return <p className="text-white">Loading starship details...</p>;
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c] p-4">
+        <p>Loading starship details...</p>
+      </div>
+    );
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c] p-4">
-      <div className="mb-5 w-full max-w-4xl bg-[#2b2b2b99] p-4 shadow-xl">
+    <div className="flex min-h-screen flex-col items-center justify-items-start bg-[#0c0c0c] p-4">
+      <Card>
         <h1 className="mb-2 text-3xl font-bold text-white">{starship.name}</h1>
-        <p className="text-white">Model: {starship.model}</p>
-        <p className="text-white">Manufacturer: {starship.manufacturer}</p>
-        <p className="text-white">
-          Cost in Credits: {starship.cost_in_credits}
+        <p className="mb-5 font-thin">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam assumenda
+          nisi eos placeat expedita. Cumque sequi accusamus quae rem tenetur
+          aliquam necessitatibus. Debitis similique maiores perferendis id, rem
+          ad sapiente.
         </p>
-        <p className="text-white">Length: {starship.length}</p>
-        <p className="text-white">
-          Max Atmosphering Speed: {starship.max_atmosphering_speed}
-        </p>
-        <p className="text-white">Crew: {starship.crew}</p>
-        <p className="text-white">Passengers: {starship.passengers}</p>
-        <p className="text-white">Cargo Capacity: {starship.cargo_capacity}</p>
-        <p className="text-white">Consumables: {starship.consumables}</p>
-        <p className="text-white">
-          Hyperdrive Rating: {starship.hyperdrive_rating}
-        </p>
-        <p className="text-white">MGLT: {starship.MGLT}</p>
-        <p className="text-white">Starship Class: {starship.starship_class}</p>
-      </div>
+        <div className="flex-2 flex items-center space-x-9">
+          <div className="flex flex-col gap-4">
+            <p>Model: {starship.model}</p>
+            <p>Cost in Credits: {starship.cost_in_credits}</p>
+            <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
+          </div>
+          <div className="flex flex-col justify-end gap-4">
+            <p>Manufacturer: {starship.manufacturer}</p>
+            <p>Length: {starship.length}</p>
+            <p>Crew: {starship.crew}</p>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 }
