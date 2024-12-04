@@ -19,7 +19,6 @@ const StyledCard = styled.div`
 
 const ImageContainer = styled.div`
   flex: 1;
-  max-width: 33.33%;
   img {
     width: 100%;
     height: 100%;
@@ -30,6 +29,12 @@ const ImageContainer = styled.div`
 const ContentContainer = styled.div`
   flex: 2;
   padding: 1rem;
+  border-top: 1px solid orange;
+
+  @media (min-width: 640px) {
+    border-top: 0;
+    border-left: 1px solid #ff8c00;
+  }
 `;
 
 export const Card: FC<CardProps> = ({
@@ -40,7 +45,7 @@ export const Card: FC<CardProps> = ({
 }) => {
   return (
     <StyledCard onClick={onClick} className={className}>
-      <div className="flex">
+      <div className="flex flex-col sm:flex-row">
         {imageSrc && (
           <ImageContainer>
             <img src={imageSrc} alt="Card image" />

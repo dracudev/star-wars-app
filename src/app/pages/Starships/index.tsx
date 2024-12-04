@@ -17,8 +17,10 @@ export default function Starships() {
               onClick={() => handleCardClick(starship.id)}
               imageSrc={starship.imageUrl}
             >
-              <h2 className="mb-2 text-xl font-medium">{starship.name}</h2>
-              <h3 className="font-thin">{starship.model}</h3>
+              <h2 className="mb-2 text-xl font-medium">
+                {starship.name.toUpperCase()}
+              </h2>
+              <h3 className="text-zinc-500">{starship.model}</h3>
             </Card>
           ))}
           {nextPage && (

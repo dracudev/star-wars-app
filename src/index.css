@@ -14,6 +14,7 @@ div#root {
   color: white;
   width: 100%;
   font-family: "Biko";
+  letter-spacing: 0.05rem;
 }
 
 /* CSS RESET */
