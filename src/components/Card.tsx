@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { type FC } from "react";
 import styled from "styled-components";
+import error_img from "../assets/error-img.jpg";
 
 interface CardProps {
   children?: ReactNode;
@@ -48,7 +49,13 @@ export const Card: FC<CardProps> = ({
       <div className="flex flex-col sm:flex-row">
         {imageSrc && (
           <ImageContainer>
-            <img src={imageSrc} alt="Card image" />
+            <img
+              src={imageSrc}
+              alt="Card image"
+              onError={(e) => {
+                e.currentTarget.src = error_img;
+              }}
+            />
           </ImageContainer>
         )}
         <ContentContainer>{children}</ContentContainer>
