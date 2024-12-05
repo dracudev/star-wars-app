@@ -16,6 +16,7 @@ const StyledCard = styled.div`
   max-width: 64rem;
   background-color: rgba(43, 43, 43, 0.6);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 `;
 
 const ImageContainer = styled.div`
@@ -24,6 +25,12 @@ const ImageContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  @media (min-width: 640px) {
+    img {
+      border-radius: 10px 0 0 10px;
+    }
   }
 `;
 

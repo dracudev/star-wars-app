@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import login from "../assets/login.svg";
+import { FaTiktok, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Navbar() {
   return (
     <nav className="flex w-full flex-col items-center justify-center">
       <div className="flex w-full max-w-4xl flex-col items-center justify-between px-4 py-6 sm:flex-row">
-        <div className="flex-1"></div>
+        <div className="order-3 mt-6 flex flex-1 justify-start space-x-3 sm:order-1 sm:mt-0">
+          <FaTiktok />
+          <FaInstagram />
+          <FaXTwitter />
+          <FaFacebook />
+          <FaYoutube />
+        </div>
         <img src={logo} width={200} className="mx-auto" />
         <div className="mt-6 flex flex-1 justify-end sm:m-0">
-          <p>LOGIN // SIGN UP</p>
+          <img src={login} className="mb-[1.9px] me-2" />
+          <p className="flex items-center justify-center">LOG IN</p>
         </div>
       </div>
 
