@@ -16,10 +16,27 @@ export const useFetchStarships = () => {
   }, [dispatch, starships.length]);
 
   const fetchNextPage = async () => {
-    if (nextPage) {
+    if (nextPage && !loading) {
       dispatch(fetchStarships(nextPage));
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight =
+        document.documentElement.scrollHeight || document.body.scrollHeight;
+      const clientHeight =
+        document.documentElement.clientHeight || window.innerHeight;
+      if (scrollTop + clientHeight >= scrollHeight - 5 && !loading) {
+        fetchNextPage();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading, fetchNextPage]);
 
   return { starships, nextPage, loading, fetchNextPage };
 };

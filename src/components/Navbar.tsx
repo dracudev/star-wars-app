@@ -15,12 +15,12 @@ export default function Navbar() {
       <div className="flex h-12 w-full items-center justify-center border-y-2 border-solid border-y-zinc-800">
         <ul className="flex h-full w-full items-center justify-center">
           <Link to="/" className="h-full">
-            <li className="flex h-full items-center justify-center border-l-2 border-solid border-l-zinc-800 px-4 py-2">
+            <li className="flex h-full items-center justify-center border-l-2 border-solid border-l-zinc-800 px-4 py-2 hover:border-b-[2px] hover:border-b-orange-700">
               HOME
             </li>
           </Link>
           <Link to="/starships" className="h-full">
-            <li className="flex h-full items-center justify-center border-x-2 border-solid border-x-zinc-800 px-4 py-2">
+            <li className="flex h-full items-center justify-center border-x-2 border-solid border-x-zinc-800 px-4 py-2 hover:border-b-[2px] hover:border-b-orange-700">
               STARSHIPS
             </li>
           </Link>
