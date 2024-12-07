@@ -63,7 +63,7 @@ const StyledCard = styled.div`
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 420px) {
     &::before {
       right: 28%;
       width: 4%;
@@ -95,6 +95,10 @@ const ContentContainer = styled.div`
     border-top: 0;
     border-left: 1px solid #ff8c00;
   }
+
+  & > *:last-child {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const Card: FC<CardProps> = ({
@@ -117,7 +121,13 @@ export const Card: FC<CardProps> = ({
             />
           </ImageContainer>
         )}
-        <ContentContainer>{children}</ContentContainer>
+        <ContentContainer>
+          <div>
+            <div></div>
+            <div></div>
+          </div>
+          {children}
+        </ContentContainer>
       </div>
     </StyledCard>
   );
