@@ -19,6 +19,15 @@ const StyledCard = styled.div`
   position: relative;
   overflow: hidden;
 
+  &:hover {
+    .line,
+    .point {
+      background: white;
+      transition: 0.3s ease;
+      box-shadow: 0 0 6px 1px #fff;
+    }
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -90,10 +99,24 @@ const ContentContainer = styled.div`
   flex: 2;
   padding: 1rem;
   border-top: 1px solid orange;
+  word-wrap: break-word;
+  word-break: break-word;
 
   @media (min-width: 640px) {
     border-top: 0;
     border-left: 1px solid #ff8c00;
+  }
+
+  .line {
+    width: 30px;
+    min-height: 3px;
+    background: #71717a;
+  }
+
+  .point {
+    width: 4px;
+    height: 4px;
+    background: #71717a;
   }
 
   & > *:last-child {
@@ -122,10 +145,11 @@ export const Card: FC<CardProps> = ({
           </ImageContainer>
         )}
         <ContentContainer>
-          <div>
-            <div></div>
-            <div></div>
+          <div className="mb-3 flex space-x-[5px]">
+            <div className="line"></div>
+            <div className="point"></div>
           </div>
+
           {children}
         </ContentContainer>
       </div>
