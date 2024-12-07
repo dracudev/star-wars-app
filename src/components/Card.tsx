@@ -99,8 +99,6 @@ const ContentContainer = styled.div`
   flex: 2;
   padding: 1rem;
   border-top: 1px solid orange;
-  word-wrap: break-word;
-  word-break: break-word;
 
   @media (min-width: 640px) {
     border-top: 0;
