@@ -15,8 +15,60 @@ const StyledCard = styled.div`
   width: 100%;
   max-width: 64rem;
   background-color: rgba(43, 43, 43, 0.6);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 20%;
+    width: 3%;
+    height: 20%;
+    background: #0c0c0c;
+    transform: translate(50%, -50%) rotate(90deg);
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 100px;
+  }
+
+  @media (min-width: 640px) {
+    &::before {
+      content: none;
+    }
+  }
+
+  @media (min-width: 640px) {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 99%;
+      right: 15%;
+      width: 1.5%;
+      height: 40%;
+      background: #0c0c0c;
+      transform: translate(50%, -50%) rotate(90deg);
+      border-bottom-left-radius: 100px;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 100px;
+    }
+  }
+
+  @media (min-width: 800px) {
+    &::after {
+      height: 60%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    &::before {
+      right: 28%;
+      width: 4%;
+    }
+  }
 `;
 
 const ImageContainer = styled.div`
