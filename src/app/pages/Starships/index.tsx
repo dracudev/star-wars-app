@@ -1,4 +1,4 @@
-import { Card } from "../../../components/Card";
+import { CustomCard } from "../../../components/CustomCard";
 import { useFetchStarships } from "../../../hooks/useFetchStarships";
 import { useNavigateStarships } from "../../../hooks/useNavigateStarships";
 
@@ -11,7 +11,7 @@ export default function Starships() {
       {starships.length > 0 ? (
         <>
           {starships.map((starship) => (
-            <Card
+            <CustomCard
               className="cursor-pointer"
               key={starship.id}
               onClick={() => handleCardClick(starship.id)}
@@ -21,7 +21,7 @@ export default function Starships() {
                 {starship.name.toUpperCase()}
               </h2>
               <h3 className="text-zinc-500 sm:text-lg">{starship.model}</h3>
-            </Card>
+            </CustomCard>
           ))}
           {nextPage && (
             <button onClick={fetchNextPage} disabled={loading}>

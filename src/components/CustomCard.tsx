@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { type FC } from "react";
 import styled from "styled-components";
-import error_img from "../assets/error-img.jpg";
+import error_img from "../assets/error-img.webp";
 
 interface CardProps {
   children?: ReactNode;
@@ -124,7 +124,7 @@ const ContentContainer = styled.div`
   }
 `;
 
-export const Card: FC<CardProps> = ({
+export const CustomCard: FC<CardProps> = ({
   children,
   onClick,
   className,

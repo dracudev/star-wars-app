@@ -141,3 +141,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

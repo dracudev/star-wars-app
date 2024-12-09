@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Card } from "../../../components/Card";
+import { CustomCard } from "../../../components/CustomCard";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 
@@ -23,7 +23,7 @@ export default function StarshipDetail() {
         <h1>STARSHIP</h1>
       </div>
 
-      <Card imageSrc={starship.imageUrl}>
+      <CustomCard imageSrc={starship.imageUrl}>
         <h1 className="mb-2 text-xl text-white">
           {starship.name.toUpperCase()}
         </h1>
@@ -45,7 +45,7 @@ export default function StarshipDetail() {
             <p>Crew: {starship.crew}</p>
           </div>
         </div>
-      </Card>
+      </CustomCard>
     </div>
   );
 }
