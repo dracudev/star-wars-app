@@ -109,12 +109,14 @@ const ContentContainer = styled.div`
     width: 30px;
     min-height: 3px;
     background: #71717a;
+    border-radius: 1px;
   }
 
   .point {
     width: 4px;
     height: 4px;
     background: #71717a;
+    border-radius: 1px;
   }
 
   & > *:last-child {
