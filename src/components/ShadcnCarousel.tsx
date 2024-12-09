@@ -15,7 +15,7 @@ import { useRef } from "react";
 const banners = [banner1, banner3, banner4];
 
 export function ShadcnCarousel() {
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const plugin = useRef(Autoplay({ delay: 7000, stopOnInteraction: true }));
   return (
     <Carousel
       opts={{
