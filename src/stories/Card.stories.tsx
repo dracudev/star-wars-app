@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "../components/CustomCard";
+import { CustomCard } from "../components/CustomCard";
 
-const meta: Meta<typeof Card> = {
-  title: "Components/Card",
-  component: Card,
+const meta: Meta<typeof CustomCard> = {
+  title: "Components/CustomCard",
+  component: CustomCard,
   parameters: {
     layout: "centered",
   },
