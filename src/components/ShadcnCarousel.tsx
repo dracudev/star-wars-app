@@ -21,13 +21,17 @@ export function ShadcnCarousel() {
       }}
       className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8"
     >
-      <CarouselContent className="">
+      <CarouselContent>
         {banners.map((banner, index) => (
-          <CarouselItem key={index} className="">
-            <div className="max-h-64">
-              <Card className="h-full rounded-2xl bg-transparent">
+          <CarouselItem key={index}>
+            <div className="max-h-64 overflow-hidden rounded-xl">
+              <Card className="h-full rounded-xl bg-transparent">
                 <CardContent className="flex items-center justify-center p-0">
-                  <img src={banner} alt="" className="" />
+                  <img
+                    src={banner}
+                    alt=""
+                    className="h-full w-full rounded-xl object-cover"
+                  />
                 </CardContent>
               </Card>
             </div>
