@@ -6,19 +6,25 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-
+import Autoplay from "embla-carousel-autoplay";
 import banner1 from "../assets/banner1.webp";
 import banner3 from "../assets/banner3.webp";
 import banner4 from "../assets/banner4.webp";
+import { useRef } from "react";
 
 const banners = [banner1, banner3, banner4];
 
 export function ShadcnCarousel() {
+  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   return (
     <Carousel
       opts={{
         align: "start",
+        loop: true,
       }}
+      plugins={[plugin.current]}
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
       className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8"
     >
       <CarouselContent>
