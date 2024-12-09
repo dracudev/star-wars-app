@@ -1,11 +1,11 @@
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from "./shadcn-ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "./ui/carousel";
+} from "./shadcn-ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import banner1 from "../assets/banner1.webp";
 import banner3 from "../assets/banner3.webp";

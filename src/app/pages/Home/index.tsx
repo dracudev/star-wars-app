@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { Button } from "../../../components/shadcn-ui/button";
 import { ShadcnCarousel } from "../../../components/ShadcnCarousel";
 
 export default function Home() {
@@ -15,6 +17,11 @@ export default function Home() {
             adventures and relive the epic moments from a galaxy far, far away.
           </p>
         </div>
+        <Link to="/starships">
+          <Button className="secondary bg-zinc-800 hover:bg-orange-700">
+            Explore
+          </Button>
+        </Link>
       </div>
     </>
   );
