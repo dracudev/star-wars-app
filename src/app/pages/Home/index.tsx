@@ -5,7 +5,7 @@ import { ShadcnCarousel } from "../../../components/ShadcnCarousel";
 export default function Home() {
   return (
     <>
-      <div className="mt-4 flex h-screen flex-col items-center justify-start bg-[#0c0c0c]">
+      <div className="mt-4 flex flex-col items-center justify-start bg-[#0c0c0c]">
         <ShadcnCarousel></ShadcnCarousel>
         <div className="mb-8 mt-8 max-w-5xl items-center justify-center px-8 text-center">
           <h1 className="mb-4 text-4xl font-bold">

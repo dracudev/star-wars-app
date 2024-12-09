@@ -9,13 +9,17 @@ import { Footer } from "../components/Footer";
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/starships" element={<Starships />} />
-        <Route path="/starships/:id" element={<StarshipDetail />} />
-      </Routes>
-      <Footer />
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/starships" element={<Starships />} />
+            <Route path="/starships/:id" element={<StarshipDetail />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 }
