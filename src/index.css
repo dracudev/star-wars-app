@@ -4,7 +4,14 @@
 
 @font-face {
   font-family: "Biko";
-  src: url("./assets/biko.otf") format("opentype");
+  src: url("../public/fonts/biko.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Starjedi";
+  src: url("../public/fonts/Starjedi.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
