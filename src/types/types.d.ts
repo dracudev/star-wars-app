@@ -1,7 +1,6 @@
 interface UserState {
-  name: string;
-  username: string;
   email: string;
+  isAuthenticated: boolean;
 }
 
 interface StarshipState {
