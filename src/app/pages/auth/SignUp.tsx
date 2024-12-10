@@ -5,8 +5,9 @@ import useAuth from "../../../hooks/useAuth";
 const SignUp: React.FC = () => {
   const { email, setEmail, password, setPassword, error, loading, handleAuth } =
     useAuth();
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c]">
+    <div className="flex flex-col items-center justify-center bg-[#0c0c0c]">
       <h1 className="mb-4 text-2xl text-white">Sign Up</h1>
       <input
         type="email"
