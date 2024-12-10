@@ -12,7 +12,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="mt-5 flex flex-col items-center justify-center bg-[#0c0c0c] p-4">
-      <h1 className="mb-4 text-2xl text-white">Welcome back!</h1>
+      <h1 className="mb-4 text-2xl text-white">Welcome back!!</h1>
       <input
         type="email"
         placeholder="Email"
