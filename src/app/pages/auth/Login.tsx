@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { loginUser } from "../../../firebase/authActions";
-import { AppDispatch } from "../../../redux/store";
+import useAuth from "../../../hooks/useAuth";
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const dispatch = useDispatch<AppDispatch>();
-
-  const handleLogin = () => {
-    dispatch(loginUser({ email, password }));
-  };
-
+  const { email, setEmail, password, setPassword, error, loading, handleAuth } =
+    useAuth();
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c] p-4">
       <h1 className="mb-4 text-2xl text-white">Login</h1>
@@ -20,17 +13,22 @@ const Login: React.FC = () => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="mb-2 p-2"
+        className="mb-2 p-2 text-black"
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="mb-2 p-2"
+        className="mb-2 p-2 text-black"
       />
-      <button onClick={handleLogin} className="bg-blue-500 p-2 text-white">
-        Login
+      {error && <p className="text-red-500">{error}</p>}
+      <button
+        onClick={() => handleAuth(loginUser)}
+        className="bg-blue-500 p-2 text-white"
+        disabled={loading}
+      >
+        {loading ? "Logging In..." : "Login"}
       </button>
     </div>
   );

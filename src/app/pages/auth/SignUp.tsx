@@ -1,32 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { signUpUser } from "../../../firebase/authActions";
-import { AppDispatch } from "../../../redux/store";
+import useAuth from "../../../hooks/useAuth";
 
 const SignUp: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const dispatch = useDispatch<AppDispatch>();
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const handleSignUp = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      await dispatch(signUpUser({ email, password })).unwrap();
-    } catch (err) {
-      console.error("Sign Up Error:", err);
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unknown error occurred");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  const { email, setEmail, password, setPassword, error, loading, handleAuth } =
+    useAuth();
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c]">
       <h1 className="mb-4 text-2xl text-white">Sign Up</h1>
@@ -46,7 +24,7 @@ const SignUp: React.FC = () => {
       />
       {error && <p className="text-red-500">{error}</p>}
       <button
-        onClick={handleSignUp}
+        onClick={() => handleAuth(signUpUser)}
         className="bg-blue-500 p-2 text-white"
         disabled={loading}
       >
