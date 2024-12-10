@@ -6,6 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { signUp, login, logout } from "../redux/userSlice";
+import "../firebase/firebase";
 
 export const signUpUser = createAsyncThunk(
   "auth/signUp",

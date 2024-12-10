@@ -8,10 +8,19 @@ export default function Navbar() {
     <nav className="flex w-full flex-col items-center justify-center">
       <div className="flex w-full max-w-4xl flex-col items-center justify-between px-4 py-6 sm:flex-row">
         <Social className="order-3 mt-6 flex flex-1 justify-start space-x-3 sm:order-1 sm:mt-0"></Social>
+
         <img src={logo} width={200} className="mx-auto sm:order-2" />
-        <div className="mt-6 flex flex-1 justify-end sm:order-3 sm:m-0">
-          <img src={login} className="mb-[1.9px] me-2" />
-          <p className="flex items-center justify-center">LOG IN</p>
+
+        <div className="mt-6 flex flex-1 flex-col space-y-2 sm:order-3 sm:m-0">
+          <Link to="/login">
+            <div className="flex items-center justify-end">
+              <img src={login} className="mb-[1.9px] me-2" />
+              <p className="flex items-center justify-end">LOG IN</p>
+            </div>
+          </Link>
+          <Link to="/signup">
+            <p className="flex justify-end">SIGN UP</p>
+          </Link>
         </div>
       </div>
 
