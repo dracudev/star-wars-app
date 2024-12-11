@@ -7,7 +7,7 @@ export default function Starships() {
   const { handleCardClick } = useNavigateStarships();
 
   return (
-    <div className="flex flex-col items-center justify-center bg-[#0c0c0c] p-4">
+    <div className="flex flex-col items-center justify-center bg-transparent px-4">
       {starships.length > 0 ? (
         <>
           {starships.map((starship) => (

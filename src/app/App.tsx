@@ -13,7 +13,7 @@ function App() {
     <Router>
       <div className="flex min-h-screen flex-col">
         <Navbar />
-        <div className="flex-grow">
+        <div className="flex-grow bg-[url('./assets/starwars-background-web.webp')] py-4">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/starships" element={<Starships />} />

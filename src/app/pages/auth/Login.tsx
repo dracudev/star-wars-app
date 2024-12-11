@@ -17,7 +17,7 @@ const Login: React.FC = () => {
   const { form, onSubmit, error, loading } = useAuthForm(loginUser);
 
   return (
-    <div className="mt-5 flex flex-col items-center justify-center bg-[#0c0c0c] p-4">
+    <div className="mt-5 flex flex-col items-center justify-center bg-transparent p-4">
       <h1 className="mb-4 font-starjedi text-2xl text-white">Welcome back</h1>
       <Form {...form}>
         <form

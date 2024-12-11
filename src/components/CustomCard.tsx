@@ -14,7 +14,7 @@ const StyledCard = styled.div`
   margin-bottom: 1.25rem;
   width: 100%;
   max-width: 64rem;
-  background-color: rgba(43, 43, 43, 0.6);
+  background-color: #27272a;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
