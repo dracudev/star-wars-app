@@ -21,7 +21,7 @@ export default function Navbar() {
         <div className="mt-6 flex flex-1 flex-col space-y-2 sm:order-3 sm:m-0">
           {!user.isAuthenticated ? (
             <Link to="/login">
-              <div className="flex items-center justify-end">
+              <div className="filter-orange flex items-center justify-end transition-colors duration-300">
                 <img src={login} className="mb-[1.9px] me-2" />
                 <p className="flex items-center justify-end">LOG IN</p>
               </div>

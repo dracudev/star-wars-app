@@ -18,7 +18,7 @@ export default function Home() {
           </p>
         </div>
         <Link to="/starships">
-          <Button className="secondary bg-zinc-800 hover:bg-orange-700">
+          <Button className="secondary bg-zinc-800 transition-colors duration-300 hover:bg-orange-700">
             Explore
           </Button>
         </Link>

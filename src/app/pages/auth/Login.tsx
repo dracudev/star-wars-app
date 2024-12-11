@@ -55,7 +55,7 @@ const Login: React.FC = () => {
           )}
           <Button
             type="submit"
-            className="text-md mt-2 items-center justify-center bg-zinc-800 hover:bg-orange-700"
+            className="text-md mt-2 items-center justify-center bg-zinc-800 transition-colors duration-300 hover:bg-orange-700"
             disabled={loading}
           >
             {loading ? <Loader2 className="animate-spin" /> : "Login"}

@@ -24,6 +24,14 @@ div#root {
   letter-spacing: 0.05rem;
 }
 
+.filter-orange {
+  transition: filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-orange:hover {
+  filter: invert(50%) sepia(100%) saturate(4000%) hue-rotate(-10deg);
+}
+
 /* CSS RESET */
 html,
 body,

@@ -102,7 +102,7 @@ const ContentContainer = styled.div`
 
   @media (min-width: 640px) {
     border-top: 0;
-    border-left: 1px solid #ff8c00;
+    border-left: 1px solid #ea580c;
   }
 
   .line {
