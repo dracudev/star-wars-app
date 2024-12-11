@@ -40,7 +40,7 @@ const useAuth = (): UseAuthReturn => {
     setLoading(true);
     setError(null);
     try {
-      await dispatch(authAction(values));
+      await dispatch(authAction(values)).unwrap();
     } catch (err) {
       console.error("Auth Error:", err);
       if (

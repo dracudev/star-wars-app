@@ -6,6 +6,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { Button } from "./shadcn-ui/button";
 import useAuth from "../hooks/useAuth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./shadcn-ui/dropdown-menu";
 
 export default function Navbar() {
   const user = useSelector((state: RootState) => state.user);
@@ -28,17 +34,26 @@ export default function Navbar() {
             </Link>
           ) : (
             <div className="flex items-center justify-end sm:items-end">
-              <div className="flex justify-end">
-                <img src={login} className="mb-[1.9px] me-2" />
-                <p className="flex items-center justify-end">{user.email}</p>
-              </div>
-              <Button
-                onClick={handleLogout}
-                className="h-5 w-5 bg-zinc-800 hover:bg-orange-700"
-                size="icon"
-              >
-                x
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <div className="filter-orange flex justify-end">
+                    <img src={login} className="mb-[1.9px] me-2" />
+                    <p className="flex items-center justify-end">
+                      {user.email}
+                    </p>
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-transparent p-0">
+                  <DropdownMenuItem className="items-center justify-center bg-transparent">
+                    <Button
+                      onClick={handleLogout}
+                      className="h-7 bg-zinc-700 p-2 transition-colors duration-300 hover:bg-orange-700"
+                    >
+                      Log Out
+                    </Button>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           )}
         </div>
