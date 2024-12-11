@@ -57,7 +57,7 @@ const useAuth = (): UseAuthReturn => {
     }
   };
 
-  // Auth redirections
+  // Auth redirection
 
   const handleLogout = () => {
     dispatch(logoutUser());
