@@ -11,6 +11,7 @@ import {
 } from "../../../components/shadcn-ui/form";
 import { Input } from "../../../components/shadcn-ui/input";
 import { Link } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 
 const SignUp: React.FC = () => {
   const { form, onSubmit, error, loading } = useAuthForm(signUpUser);
@@ -57,7 +58,7 @@ const SignUp: React.FC = () => {
             className="text-md mt-2 items-center justify-center bg-zinc-800 hover:bg-orange-700"
             disabled={loading}
           >
-            {loading ? "Signing Up..." : "Sign Up"}
+            {loading ? <Loader2 className="animate-spin" /> : "Sign Up"}
           </Button>
           <Link to="/login">
             <p className="text-white">Already registered? Log in!</p>

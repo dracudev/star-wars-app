@@ -27,19 +27,18 @@ export default function Navbar() {
               </div>
             </Link>
           ) : (
-            <div className="flex flex-col items-center justify-end sm:items-end">
-              <div className="flex flex-col items-center justify-center space-y-2">
-                <div className="flex justify-end">
-                  <img src={login} className="mb-[1.9px] me-2" />
-                  <p className="flex items-center justify-end">{user.email}</p>
-                </div>
-                <Button
-                  onClick={handleLogout}
-                  className="h-8 w-20 bg-zinc-800 p-3 hover:bg-orange-700"
-                >
-                  Logout
-                </Button>
+            <div className="flex items-center justify-end sm:items-end">
+              <div className="flex justify-end">
+                <img src={login} className="mb-[1.9px] me-2" />
+                <p className="flex items-center justify-end">{user.email}</p>
               </div>
+              <Button
+                onClick={handleLogout}
+                className="h-5 w-5 bg-zinc-800 hover:bg-orange-700"
+                size="icon"
+              >
+                x
+              </Button>
             </div>
           )}
         </div>

@@ -31,6 +31,7 @@ const useAuth = (): UseAuthReturn => {
   const [loading, setLoading] = useState(false);
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
+  const [hasRedirected, setHasRedirected] = useState(false);
 
   const handleAuth = async (
     authAction: (params: AuthParams) => any,
@@ -39,7 +40,7 @@ const useAuth = (): UseAuthReturn => {
     setLoading(true);
     setError(null);
     try {
-      await dispatch(authAction(values)).unwrap();
+      await dispatch(authAction(values));
     } catch (err) {
       console.error("Auth Error:", err);
       if (
@@ -64,10 +65,11 @@ const useAuth = (): UseAuthReturn => {
   };
 
   useEffect(() => {
-    if (user.isAuthenticated) {
-      navigate("/starships");
+    if (user.isAuthenticated && !hasRedirected) {
+      navigate("/starships", { replace: true });
+      setHasRedirected(true);
     }
-  }, [user.isAuthenticated, navigate]);
+  }, [user.isAuthenticated, navigate, hasRedirected]);
 
   return {
     email,
