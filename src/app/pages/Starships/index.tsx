@@ -30,7 +30,7 @@ export default function Starships() {
           )}
         </>
       ) : (
-        <p className="flex min-h-screen flex-col items-center justify-center bg-[#0c0c0c] p-4">
+        <p className="flex min-h-screen flex-col items-center justify-center bg-transparent p-4">
           Loading starships...
         </p>
       )}

@@ -15,9 +15,9 @@ export default function Navbar() {
     <nav className="flex w-full flex-col items-center justify-center">
       <div className="flex w-full max-w-4xl flex-col items-center justify-between px-4 py-6 sm:flex-row">
         <Social className="order-3 mt-6 flex flex-1 justify-start space-x-3 sm:order-1 sm:mt-0"></Social>
-
-        <img src={logo} width={200} className="mx-auto sm:order-2" />
-
+        <Link className="mx-auto sm:order-2" to="/">
+          <img src={logo} width={200} />
+        </Link>
         <div className="mt-6 flex flex-1 flex-col space-y-2 sm:order-3 sm:m-0">
           {!user.isAuthenticated ? (
             <Link to="/login">
