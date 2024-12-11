@@ -37,8 +37,12 @@ const useAuth = (): UseAuthReturn => {
       await dispatch(authAction(values)).unwrap();
     } catch (err) {
       console.error("Auth Error:", err);
-      if (err instanceof Error) {
-        setError(err.message);
+      if (
+        err instanceof Error ||
+        (err && typeof err === "object" && "message" in err)
+      ) {
+        const errorMessage = (err as Error).message.replace(/^Firebase: /, "");
+        setError(errorMessage);
       } else {
         setError("An unknown error occurred");
       }

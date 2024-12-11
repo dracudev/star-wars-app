@@ -1,6 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
 import { signUpUser } from "../../../firebase/authActions";
 import useAuthForm from "../../../hooks/useAuthForm";
 import { Button } from "../../../components/shadcn-ui/button";
@@ -15,11 +13,10 @@ import { Input } from "../../../components/shadcn-ui/input";
 
 const SignUp: React.FC = () => {
   const { form, onSubmit, error, loading } = useAuthForm(signUpUser);
-  const user = useSelector((state: RootState) => state.user);
 
   return (
     <div className="mt-5 flex flex-col items-center justify-center bg-[#0c0c0c] p-4">
-      <h1 className="font-starjedi mb-4 text-2xl text-white">Welcome Abroad</h1>
+      <h1 className="mb-4 font-starjedi text-2xl text-white">Welcome Abroad</h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -52,14 +49,11 @@ const SignUp: React.FC = () => {
           {error && <p className="mt-4 text-red-500">{error}</p>}
           <Button
             type="submit"
-            className="text-md mt-2 items-center justify-center bg-zinc-800"
+            className="text-md mt-2 items-center justify-center bg-zinc-800 hover:bg-orange-700"
             disabled={loading}
           >
             {loading ? "Signing Up..." : "Sign Up"}
           </Button>
-          {user.isAuthenticated && (
-            <p className="text-green-500">Signed up as {user.email}</p>
-          )}
         </form>
       </Form>
     </div>
