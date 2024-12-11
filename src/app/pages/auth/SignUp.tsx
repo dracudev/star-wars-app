@@ -10,6 +10,7 @@ import {
   FormMessage,
 } from "../../../components/shadcn-ui/form";
 import { Input } from "../../../components/shadcn-ui/input";
+import { Link } from "react-router-dom";
 
 const SignUp: React.FC = () => {
   const { form, onSubmit, error, loading } = useAuthForm(signUpUser);
@@ -58,6 +59,9 @@ const SignUp: React.FC = () => {
           >
             {loading ? "Signing Up..." : "Sign Up"}
           </Button>
+          <Link to="/login">
+            <p className="text-white">Already registered? Log in!</p>
+          </Link>
         </form>
       </Form>
     </div>

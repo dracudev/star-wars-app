@@ -20,17 +20,12 @@ export default function Navbar() {
 
         <div className="mt-6 flex flex-1 flex-col space-y-2 sm:order-3 sm:m-0">
           {!user.isAuthenticated ? (
-            <>
-              <Link to="/login">
-                <div className="flex items-center justify-end">
-                  <img src={login} className="mb-[1.9px] me-2" />
-                  <p className="flex items-center justify-end">LOG IN</p>
-                </div>
-              </Link>
-              <Link to="/signup">
-                <p className="flex justify-end">SIGN UP</p>
-              </Link>
-            </>
+            <Link to="/login">
+              <div className="flex items-center justify-end">
+                <img src={login} className="mb-[1.9px] me-2" />
+                <p className="flex items-center justify-end">LOG IN</p>
+              </div>
+            </Link>
           ) : (
             <div className="flex flex-col items-center justify-end sm:items-end">
               <div className="flex flex-col items-center justify-center space-y-2">
