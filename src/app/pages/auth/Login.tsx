@@ -46,7 +46,11 @@ const Login: React.FC = () => {
               </FormItem>
             )}
           />
-          {error && <p className="mt-4 text-red-500">{error}</p>}
+          {error && (
+            <p className="mt-4 flex items-center justify-center text-zinc-400">
+              {error}
+            </p>
+          )}
           <Button
             type="submit"
             className="text-md mt-2 items-center justify-center bg-zinc-800 hover:bg-orange-700"

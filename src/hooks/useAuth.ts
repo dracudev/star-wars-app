@@ -1,6 +1,8 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../redux/store";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../firebase/authActions";
 
 interface AuthParams {
   email: string;
@@ -18,6 +20,7 @@ interface UseAuthReturn {
     authAction: (params: AuthParams) => any,
     values: AuthParams,
   ) => Promise<void>;
+  handleLogout: () => void;
 }
 
 const useAuth = (): UseAuthReturn => {
@@ -26,6 +29,8 @@ const useAuth = (): UseAuthReturn => {
   const dispatch = useDispatch<AppDispatch>();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const user = useSelector((state: RootState) => state.user);
+  const navigate = useNavigate();
 
   const handleAuth = async (
     authAction: (params: AuthParams) => any,
@@ -51,6 +56,19 @@ const useAuth = (): UseAuthReturn => {
     }
   };
 
+  // Auth redirections
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/");
+  };
+
+  useEffect(() => {
+    if (user.isAuthenticated) {
+      navigate("/starships");
+    }
+  }, [user.isAuthenticated, navigate]);
+
   return {
     email,
     setEmail,
@@ -59,6 +77,7 @@ const useAuth = (): UseAuthReturn => {
     error,
     loading,
     handleAuth,
+    handleLogout,
   };
 };
 

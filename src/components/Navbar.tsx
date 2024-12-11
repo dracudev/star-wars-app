@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.webp";
 import login from "../assets/login.svg";
 import { Social } from "./Social";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../redux/store";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 import { Button } from "./shadcn-ui/button";
-import { logoutUser } from "../firebase/authActions";
+import useAuth from "../hooks/useAuth";
 
 export default function Navbar() {
   const user = useSelector((state: RootState) => state.user);
-  const dispatch = useDispatch<AppDispatch>();
+  const { handleLogout } = useAuth();
 
   return (
     <nav className="flex w-full flex-col items-center justify-center">
@@ -39,7 +39,7 @@ export default function Navbar() {
                   <p className="flex items-center justify-end">{user.email}</p>
                 </div>
                 <Button
-                  onClick={() => dispatch(logoutUser())}
+                  onClick={handleLogout}
                   className="h-8 w-20 bg-zinc-800 p-3 hover:bg-orange-700"
                 >
                   Logout
