@@ -32,6 +32,7 @@ const useAuth = (): UseAuthReturn => {
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
   const [hasRedirected, setHasRedirected] = useState(false);
+  const lastPath = useSelector((state: RootState) => state.user.lastPath);
 
   const handleAuth = async (
     authAction: (params: AuthParams) => any,
@@ -58,6 +59,7 @@ const useAuth = (): UseAuthReturn => {
   };
 
   // Auth redirection
+  // Now on logout comes to login ???
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -66,7 +68,7 @@ const useAuth = (): UseAuthReturn => {
 
   useEffect(() => {
     if (user.isAuthenticated && !hasRedirected) {
-      navigate("/starships", { replace: true });
+      navigate(lastPath, { replace: true });
       setHasRedirected(true);
     }
   }, [user.isAuthenticated, navigate, hasRedirected]);

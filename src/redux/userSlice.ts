@@ -4,6 +4,7 @@ import { type UserState } from "../types/types";
 const initialState: UserState = {
   email: "",
   isAuthenticated: false,
+  lastPath: "",
 };
 
 export const userSlice = createSlice({
@@ -24,8 +25,11 @@ export const userSlice = createSlice({
       state.email = "";
       state.isAuthenticated = false;
     },
+    setLastPath: (state, action: PayloadAction<string>) => {
+      state.lastPath = action.payload;
+    },
   },
 });
 
-export const { signUp, login, logout } = userSlice.actions;
+export const { signUp, login, logout, setLastPath } = userSlice.actions;
 export default userSlice.reducer;

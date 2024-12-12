@@ -13,6 +13,7 @@ import { RootState } from "../redux/store";
 
 function App() {
   const user = useSelector((state: RootState) => state.user);
+
   return (
     <Router>
       <div className="flex min-h-screen flex-col">

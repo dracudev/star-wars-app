@@ -1,6 +1,7 @@
 interface UserState {
   email: string;
   isAuthenticated: boolean;
+  lastPath: string;
 }
 
 interface StarshipState {
