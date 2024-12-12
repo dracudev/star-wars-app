@@ -1,13 +1,11 @@
 import { useParams } from "react-router-dom";
 import { CustomCard } from "../../../components/CustomCard";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
+import { useFetchStarships } from "../../../hooks/useFetchStarships";
 
 export default function StarshipDetail() {
   const { id } = useParams<{ id: string }>();
-  const starship = useSelector((state: RootState) =>
-    state.starship.starships.find((starship) => starship.id === id),
-  );
+  const { starships } = useFetchStarships();
+  const starship = starships.find((starship) => starship.id === id);
 
   if (!starship) {
     return (
