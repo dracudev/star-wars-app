@@ -58,12 +58,8 @@ const useAuth = (): UseAuthReturn => {
     }
   };
 
-  // Auth redirection
-  // Now on logout comes to login ???
-
   const handleLogout = () => {
     dispatch(logoutUser());
-    navigate("/");
   };
 
   useEffect(() => {

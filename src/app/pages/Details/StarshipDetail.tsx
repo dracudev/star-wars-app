@@ -1,22 +1,13 @@
-import { useParams } from "react-router-dom";
 import { CustomCard } from "../../../components/CustomCard";
-import { useFetchStarships } from "../../../hooks/useFetchStarships";
+import { type Starship } from "../../../types/types";
 
-export default function StarshipDetail() {
-  const { id } = useParams<{ id: string }>();
-  const { starships } = useFetchStarships();
-  const starship = starships.find((starship) => starship.id === id);
+interface StarshipDetailsProps {
+  starship: Starship;
+}
 
-  if (!starship) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent p-4">
-        <p>Loading starship details...</p>
-      </div>
-    );
-  }
-
+export function StarshipDetails({ starship }: StarshipDetailsProps) {
   return (
-    <div className="flex flex-col items-center justify-items-start bg-transparent p-4">
+    <>
       <div className="mb-4 w-full max-w-5xl border-y-2 border-solid border-y-zinc-600 p-3">
         <h1>STARSHIP</h1>
       </div>
@@ -44,6 +35,6 @@ export default function StarshipDetail() {
           </div>
         </div>
       </CustomCard>
-    </div>
+    </>
   );
 }

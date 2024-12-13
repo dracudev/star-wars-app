@@ -3,13 +3,13 @@ import Navbar from "../components/Navbar";
 import Starships from "./pages/Starships/index";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import StarshipDetail from "./pages/StarshipDetail";
 import { Footer } from "../components/Footer";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import ProtectedRoute from "../components/utils/ProtectedRoute";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import Details from "./pages/Details";
 
 function App() {
   const user = useSelector((state: RootState) => state.user);
@@ -30,7 +30,7 @@ function App() {
               }
             >
               <Route path="/starships" element={<Starships />} />
-              <Route path="/starships/:id" element={<StarshipDetail />} />
+              <Route path="/starships/:id" element={<Details />} />
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />

@@ -11,4 +11,15 @@ interface StarshipState {
   error: string | null;
 }
 
-export type { UserState, StarshipState };
+interface Starship {
+  imageUrl: string;
+  name: string;
+  model: string;
+  cost_in_credits: string;
+  max_atmosphering_speed: string;
+  manufacturer: string;
+  length: string;
+  crew: string;
+}
+
+export type { UserState, StarshipState, Starship };
