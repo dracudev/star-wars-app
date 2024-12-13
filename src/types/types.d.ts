@@ -12,7 +12,7 @@ interface StarshipState {
 }
 
 interface Starship {
-  imageUrl: string;
+  starshipImage: string;
   name: string;
   model: string;
   cost_in_credits: string;

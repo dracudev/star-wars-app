@@ -14,7 +14,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
 }) => {
   const location = useLocation();
   const dispatch = useDispatch<AppDispatch>();
-
+  //TODO: ERROR RENDERING NAVBAR
   if (!canActivate) {
     dispatch(setLastPath(location.pathname));
     return <Navigate to={redirectPath} replace />;

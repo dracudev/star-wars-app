@@ -62,8 +62,16 @@ const useAuth = (): UseAuthReturn => {
     dispatch(logoutUser());
   };
 
+  //TODO: ERROR LASTPATH=LOGIN REDIRECTS LOGIN
   useEffect(() => {
     if (user.isAuthenticated && !hasRedirected) {
+      console.log(lastPath);
+      if (lastPath === "/login" || lastPath === "/signup") {
+        console.log("entro");
+        navigate("/starships", { replace: true });
+        setHasRedirected(true);
+        return;
+      }
       navigate(lastPath, { replace: true });
       setHasRedirected(true);
     }

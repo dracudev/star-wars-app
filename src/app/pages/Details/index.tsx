@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 
 import { useFetchStarships } from "../../../hooks/useFetchStarships";
 import { StarshipDetails } from "./StarshipDetail";
+import PilotDetails from "./PilotDetails";
+import FilmDetails from "./FilmDetails";
 
 export default function Details() {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +21,8 @@ export default function Details() {
   return (
     <div className="flex flex-col items-center justify-items-start bg-transparent p-4">
       <StarshipDetails starship={starship} />
+      <PilotDetails starship={starship} />
+      <FilmDetails starship={starship} />
     </div>
   );
 }

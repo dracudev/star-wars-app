@@ -18,14 +18,17 @@ export const fetchStarships = createAsyncThunk(
       }
       const data = await response.json();
 
-      const starshipsImages = await Promise.all(
+      const images = await Promise.all(
         data.results.map(async (starship: any) => {
           const id = starship.url.split("/").slice(-2, -1)[0];
-          const imageUrl = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
-          return { ...starship, id, imageUrl };
+          const starshipImage = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
+          const pilotImage = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+          const filmImage = `https://starwars-visualguide.com/assets/img/films/${id}.jpg`;
+          return { ...starship, id, starshipImage, pilotImage, filmImage };
         }),
       );
-      return { starships: starshipsImages, nextPage: data.next };
+
+      return { starships: images, nextPage: data.next };
     } catch (error) {
       return rejectWithValue("An unknown error occurred");
     }

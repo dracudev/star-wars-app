@@ -15,7 +15,7 @@ export default function Starships() {
               className="cursor-pointer"
               key={starship.id}
               onClick={() => handleCardClick(starship.id)}
-              imageSrc={starship.imageUrl}
+              imageSrc={starship.starshipImage}
             >
               <h2 className="mb-2 text-xl sm:text-2xl">
                 {starship.name.toUpperCase()}

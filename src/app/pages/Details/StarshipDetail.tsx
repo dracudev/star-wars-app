@@ -12,7 +12,7 @@ export function StarshipDetails({ starship }: StarshipDetailsProps) {
         <h1>STARSHIP</h1>
       </div>
 
-      <CustomCard imageSrc={starship.imageUrl}>
+      <CustomCard imageSrc={starship.starshipImage}>
         <h1 className="mb-2 text-xl text-white">
           {starship.name.toUpperCase()}
         </h1>
