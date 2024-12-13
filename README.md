@@ -111,6 +111,16 @@ The app is designed as part of a technical test for front-end developers in the 
   ```bash
   code .
   ```
+4. Create a .env file in the root of the project and replace the values with your personal Firebase API keys:
+  ```env
+  VITE_FIREBASE_API_KEY=your_firebase_api_key
+  VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+  VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+  VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+  VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+  VITE_FIREBASE_APP_ID=your_firebase_app_id
+  ```
+
 
 <br>
 
