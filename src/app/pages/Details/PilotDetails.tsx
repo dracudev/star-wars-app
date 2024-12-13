@@ -5,11 +5,14 @@ interface PilotDetailsProps {
 }
 
 export default function PilotDetails({ starship }: PilotDetailsProps) {
-  // Fetch pilots
+  // Fetch pilots + fetch pilot img
 
   return (
-    <div className="mb-4 w-full max-w-5xl border-y-2 border-solid border-y-zinc-600 p-3">
-      <h1>PILOTS</h1>
-    </div>
+    <>
+      <div className="mb-4 w-full max-w-5xl border-y-2 border-solid border-y-zinc-600 p-3">
+        <h1>PILOTS</h1>
+      </div>
+      <p>{starship.name}</p>
+    </>
   );
 }

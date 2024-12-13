@@ -5,11 +5,14 @@ interface FilmDetailsProps {
 }
 
 export default function FilmDetails({ starship }: FilmDetailsProps) {
-  // Fetch films
+  // Fetch films + fetch film img
 
   return (
-    <div className="mb-4 w-full max-w-5xl border-y-2 border-solid border-y-zinc-600 p-3">
-      <h1>PILOTS</h1>
-    </div>
+    <>
+      <div className="mb-4 w-full max-w-5xl border-y-2 border-solid border-y-zinc-600 p-3">
+        <h1>FILMS</h1>
+      </div>
+      <p>{starship.name}</p>
+    </>
   );
 }
