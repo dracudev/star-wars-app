@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { AppDispatch } from "../../redux/store";
 import { setLastPath } from "../../redux/userSlice";
+import { useEffect } from "react";
 
 interface ProtectedRouteProps {
   canActivate: boolean;
@@ -14,9 +15,14 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
 }) => {
   const location = useLocation();
   const dispatch = useDispatch<AppDispatch>();
-  //TODO: ERROR RENDERING NAVBAR
+
+  useEffect(() => {
+    if (!canActivate) {
+      dispatch(setLastPath(location.pathname));
+    }
+  }, [canActivate, dispatch, location.pathname]);
+
   if (!canActivate) {
-    dispatch(setLastPath(location.pathname));
     return <Navigate to={redirectPath} replace />;
   }
   return <Outlet />;
