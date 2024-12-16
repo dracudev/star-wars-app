@@ -2,7 +2,7 @@
 
 ## 📄 Description
 
-This project involves creating a React web application that displays information about Star Wars ships by consuming data from an API. The app will show a list of ships with their essential details, and when clicked, it will display the detailed information of each ship. The project also implements pagination, a search function, and protected routes for logged-in users.
+This project involves creating a React web application that displays information about Star Wars ships by consuming data from an API. The app will show a list of ships with their essential details, and when clicked, it will display the detailed information of each ship. The project also implements pagination and protected routes for logged-in users.
 
 The app is designed as part of a technical test for front-end developers in the e-commerce sector in Barcelona.
 
