@@ -9,6 +9,8 @@ interface StarshipState {
   nextPage: string | null;
   loading: boolean;
   error: string | null;
+  films: { title: string; filmImage: string }[];
+  pilots: { name: string; pilotImage: string }[];
 }
 
 interface Starship {
@@ -20,6 +22,8 @@ interface Starship {
   manufacturer: string;
   length: string;
   crew: string;
+  films: string[];
+  pilots: string[];
 }
 
 export type { UserState, StarshipState, Starship };

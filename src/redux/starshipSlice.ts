@@ -6,6 +6,8 @@ const initialState: StarshipState = {
   nextPage: "https://swapi.py4e.com/api/starships/?page=1",
   loading: false,
   error: null,
+  films: [],
+  pilots: [],
 };
 
 export const fetchStarships = createAsyncThunk(
@@ -33,26 +35,41 @@ export const fetchStarships = createAsyncThunk(
   },
 );
 
-/*
 export const fetchFilmsAndPilots = createAsyncThunk(
   "starship/fetchFilmsAndPilots",
-  async  (urls: string[], {rejectWithValue}) => {
+  async (urls: { films: string[]; pilots: string[] }, { rejectWithValue }) => {
     try {
-      const responses[] = await fetch(urls);
-      if (!responses.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await responses.json();
-
-      const filmsAndPilotsData = await Promise.all(
-        data.map(async (filmsAndPilots: any) => {
-          const name = filmsAndPilots.name ? filmsAndPilots.name : filmsAndPilots.title;
-          const image = filmsAndPilots.name ? ``
+      const fetchDetails = async (url: string) => {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
         }
-      )
+        return response.json();
+      };
+
+      const filmsData = await Promise.all(
+        urls.films.map(async (filmUrl) => {
+          const film = await fetchDetails(filmUrl);
+          const filmImage = `https://starwars-visualguide.com/assets/img/films/${film.episode_id}.jpg`;
+          return { title: film.title, filmImage };
+        }),
+      );
+
+      const pilotsData = await Promise.all(
+        urls.pilots.map(async (pilotUrl) => {
+          const pilot = await fetchDetails(pilotUrl);
+          const pilotId = pilot.url.split("/").slice(-2, -1)[0];
+          const pilotImage = `https://starwars-visualguide.com/assets/img/characters/${pilotId}.jpg`;
+          return { name: pilot.name, pilotImage };
+        }),
+      );
+
+      return { films: filmsData, pilots: pilotsData };
+    } catch (error) {
+      return rejectWithValue("An unknown error occurred");
     }
-  }
-)*/
+  },
+);
 
 const starshipSlice = createSlice({
   name: "starship",
@@ -70,6 +87,18 @@ const starshipSlice = createSlice({
         state.nextPage = action.payload.nextPage;
       })
       .addCase(fetchStarships.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(fetchFilmsAndPilots.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchFilmsAndPilots.fulfilled, (state, action) => {
+        state.loading = false;
+        state.films = action.payload.films;
+        state.pilots = action.payload.pilots;
+      })
+      .addCase(fetchFilmsAndPilots.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
       });
