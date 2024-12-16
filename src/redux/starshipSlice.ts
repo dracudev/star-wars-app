@@ -3,12 +3,10 @@ import { StarshipState } from "../types/types";
 
 const initialState: StarshipState = {
   starships: [],
-  nextPage: "https://swapi.dev/api/starships/?page=1",
+  nextPage: "https://swapi.py4e.com/api/starships/?page=1",
   loading: false,
   error: null,
 };
-
-//TODO: could be more pilot/film images than 1
 
 export const fetchStarships = createAsyncThunk(
   "starship/fetchStarships",
@@ -34,6 +32,27 @@ export const fetchStarships = createAsyncThunk(
     }
   },
 );
+
+/*
+export const fetchFilmsAndPilots = createAsyncThunk(
+  "starship/fetchFilmsAndPilots",
+  async  (urls: string[], {rejectWithValue}) => {
+    try {
+      const responses[] = await fetch(urls);
+      if (!responses.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await responses.json();
+
+      const filmsAndPilotsData = await Promise.all(
+        data.map(async (filmsAndPilots: any) => {
+          const name = filmsAndPilots.name ? filmsAndPilots.name : filmsAndPilots.title;
+          const image = filmsAndPilots.name ? ``
+        }
+      )
+    }
+  }
+)*/
 
 const starshipSlice = createSlice({
   name: "starship",

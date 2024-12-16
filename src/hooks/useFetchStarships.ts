@@ -11,7 +11,7 @@ export const useFetchStarships = () => {
 
   useEffect(() => {
     if (starships.length === 0) {
-      dispatch(fetchStarships("https://swapi.dev/api/starships/?page=1"));
+      dispatch(fetchStarships("https://swapi.py4e.com/api/starships/?page=1"));
     }
   }, [dispatch, starships.length]);
 
