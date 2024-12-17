@@ -9,7 +9,7 @@ interface StarshipState {
   nextPage: string | null;
   loading: boolean;
   error: string | null;
-  films: { title: string; filmImage: string }[];
+  films: { title: string; episode: string; filmImage: string }[];
   pilots: { name: string; pilotImage: string }[];
 }
 

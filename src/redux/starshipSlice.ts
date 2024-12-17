@@ -51,7 +51,7 @@ export const fetchFilmsAndPilots = createAsyncThunk(
         urls.films.map(async (filmUrl) => {
           const film = await fetchDetails(filmUrl);
           const filmImage = `https://starwars-visualguide.com/assets/img/films/${film.episode_id}.jpg`;
-          return { title: film.title, filmImage };
+          return { title: film.title, episode: film.episode_id, filmImage };
         }),
       );
 
