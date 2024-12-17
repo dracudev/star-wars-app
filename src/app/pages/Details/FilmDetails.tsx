@@ -12,7 +12,7 @@ export default function FilmDetails({ films }: FilmDetailsProps) {
         <div className="mb-4 w-full max-w-5xl border-y-2 border-solid border-y-zinc-600 p-3">
           <h1>FILMS</h1>
         </div>
-        <p>No existing films for this starship</p>
+        <p className="mb-3">No existing films for this starship</p>
       </>
     );
   }

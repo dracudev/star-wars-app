@@ -12,7 +12,7 @@ export default function PilotDetails({ pilots }: PilotDetailsProps) {
         <div className="mb-4 w-full max-w-5xl border-y-2 border-solid border-y-zinc-600 p-3">
           <h1>PILOTS</h1>
         </div>
-        <p>No existing pilots for this starship</p>
+        <p className="mb-3">No existing pilots for this starship</p>
       </>
     );
   }

@@ -47,7 +47,7 @@ const StyledTinyCard = styled.div`
 
 const ImageContainer = styled.div`
   width: 100%;
-  max-height: 34rem;
+  max-height: 100vh;
   overflow: hidden;
   img {
     width: 100%;
