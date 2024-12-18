@@ -21,14 +21,14 @@ export default function Details() {
 
   if (!starship) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent p-4">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">
         <p>Loading starship details...</p>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-center justify-items-start bg-transparent p-4">
+    <div className="flex flex-col items-center justify-items-center bg-transparent">
       <StarshipDetails starship={starship} />
       <PilotDetails pilots={pilots} />
       <FilmDetails films={films} />

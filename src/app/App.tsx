@@ -18,7 +18,7 @@ function App() {
     <Router>
       <div className="flex min-h-screen flex-col">
         <Navbar />
-        <div className="flex flex-grow items-center justify-center bg-[url('./assets/bg.webp')] py-4">
+        <div className="flex-grow items-center justify-center bg-[url('./assets/bg.webp')] p-4">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

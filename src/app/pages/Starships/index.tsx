@@ -7,7 +7,7 @@ export default function Starships() {
   const { handleCardClick } = useNavigateStarships();
 
   return (
-    <div className="flex flex-col items-center justify-center bg-transparent px-4">
+    <div className="flex flex-col items-center justify-center bg-transparent">
       {starships.length > 0 ? (
         <>
           {starships.map((starship) => (
@@ -30,7 +30,7 @@ export default function Starships() {
           )}
         </>
       ) : (
-        <p className="flex min-h-screen flex-col items-center justify-center bg-transparent p-4">
+        <p className="flex min-h-screen flex-col items-center justify-center bg-transparent">
           Loading starships...
         </p>
       )}
