@@ -1,28 +1,29 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { CustomCard, CardProps } from "../components/CustomCard";
+import { TinyCard, CardProps } from "../components/TinyCard";
+
 export default {
-  title: "Components/CustomCard",
-  component: CustomCard,
+  title: "Components/TinyCard",
+  component: TinyCard,
 } as Meta;
 
-const Template: StoryFn<CardProps> = (args) => <CustomCard {...args} />;
+const Template: StoryFn<CardProps> = (args) => <TinyCard {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  className: "default-tiny-card",
   imageSrc: "https://picsum.photos/200/300",
 };
 
 export const WithLongText = Template.bind({});
 WithLongText.args = {
-  imageSrc: "",
+  className: "long-text-tiny-card",
+  imageSrc: "https://picsum.photos/200/300",
   children: (
     <div>
       <h2>Title</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        tempor incididunt ut labore et dolore magna aliqua.
       </p>
     </div>
   ),
@@ -30,10 +31,13 @@ WithLongText.args = {
 
 export const WithoutImage = Template.bind({});
 WithoutImage.args = {
+  className: "no-image-tiny-card",
   children: (
     <div>
       <h2>Title</h2>
-      <p>This is a card without an image. It only contains text content.</p>
+      <p>
+        This is a tiny card without an image. It only contains text content.
+      </p>
     </div>
   ),
 };

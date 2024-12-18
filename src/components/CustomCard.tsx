@@ -3,7 +3,7 @@ import { type FC } from "react";
 import styled from "styled-components";
 import error_img from "../assets/error-img.webp";
 
-interface CardProps {
+export interface CardProps {
   children?: ReactNode;
   onClick?: () => void;
   className?: string;
