@@ -19,6 +19,10 @@ const StyledCard = styled.div`
   position: relative;
   overflow: hidden;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   &:hover {
     .line,
     .point {
