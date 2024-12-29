@@ -131,8 +131,7 @@ The app is designed as part of a technical test for front-end developers in the 
   npm install
   npm run dev
   ```
-
 2. Run the unitary tests.
-   ```bash
-   npx jest
-   ```
+  ```bash
+  npx jest
+  ```
