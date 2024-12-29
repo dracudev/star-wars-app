@@ -82,7 +82,7 @@ const ContentContainer = styled.div`
 
 export const TinyCard: FC<CardProps> = ({ children, className, imageSrc }) => {
   return (
-    <StyledTinyCard className={className}>
+    <StyledTinyCard className={className} data-testid="tiny-card">
       {imageSrc && (
         <ImageContainer>
           <img

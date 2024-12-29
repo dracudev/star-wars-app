@@ -128,14 +128,18 @@ const ContentContainer = styled.div`
   }
 `;
 
-export const CustomCard: FC<CardProps> = ({
+const CustomCard: FC<CardProps> = ({
   children,
   onClick,
   className,
   imageSrc,
 }) => {
   return (
-    <StyledCard onClick={onClick} className={className}>
+    <StyledCard
+      onClick={onClick}
+      className={className}
+      data-testid="custom-card"
+    >
       <div className="flex flex-col sm:flex-row">
         {imageSrc && (
           <ImageContainer>
@@ -160,3 +164,5 @@ export const CustomCard: FC<CardProps> = ({
     </StyledCard>
   );
 };
+
+export default CustomCard;

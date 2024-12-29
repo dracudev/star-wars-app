@@ -1,4 +1,4 @@
-import { CustomCard } from "../../../components/CustomCard";
+import CustomCard from "../../../components/CustomCard";
 import { useFetchStarships } from "../../../hooks/useFetchStarships";
 import { useNavigateStarships } from "../../../hooks/useNavigateStarships";
 

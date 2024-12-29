@@ -1,4 +1,4 @@
-import { CustomCard } from "../../../components/CustomCard";
+import CustomCard from "../../../components/CustomCard";
 import { type Starship } from "../../../types/types";
 
 interface StarshipDetailsProps {
