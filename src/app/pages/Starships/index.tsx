@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import CustomCard from "../../../components/CustomCard";
 import { useFetchStarships } from "../../../hooks/useFetchStarships";
 import { useNavigateStarships } from "../../../hooks/useNavigateStarships";
@@ -5,6 +6,13 @@ import { useNavigateStarships } from "../../../hooks/useNavigateStarships";
 export default function Starships() {
   const { starships, nextPage, loading, fetchNextPage } = useFetchStarships();
   const { handleCardClick } = useNavigateStarships();
+
+  useEffect(() => {
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition, 10));
+    }
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center bg-transparent">

@@ -19,6 +19,10 @@ export default function Details() {
     }
   }, [starship, fetchFilmsAndPilotsData, dataFetched]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (!starship) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">

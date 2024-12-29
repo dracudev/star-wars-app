@@ -4,6 +4,7 @@ export const useNavigateStarships = () => {
   const navigate = useNavigate();
 
   const handleCardClick = (id: string) => {
+    sessionStorage.setItem("scrollPosition", window.scrollY.toString());
     navigate(`/starships/${id}`);
   };
 
