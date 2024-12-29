@@ -38,7 +38,7 @@ export default function Navbar() {
                 <DropdownMenuTrigger>
                   <div className="filter-orange flex justify-end">
                     <img src={login} className="mb-[1.9px] me-2" />
-                    <p className="flex items-center justify-end">
+                    <p className="flex max-w-[30ch] items-center justify-end truncate">
                       {user.email}
                     </p>
                   </div>
