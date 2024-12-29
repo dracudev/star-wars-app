@@ -81,7 +81,7 @@ The app is designed as part of a technical test for front-end developers in the 
 - **TailwindCSS** for utility-first responsive styling.
 - **Firebase** for user authentication and management.
 - **Storybook** for building and testing components in isolation.
-- **Vitest** for unit testing.
+- **Jest** for unit testing.
 - **Zod** for schema validation.
 - **Lucide-react** and **React Icons** for integrating icons.
 - **React Hook Form** for handling forms.
@@ -130,4 +130,8 @@ The app is designed as part of a technical test for front-end developers in the 
   ```bash
   npm install
   npm run dev
+  ```
+2. Run the unitary tests.
+  ```bash
+  npx jest
   ```
