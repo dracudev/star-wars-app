@@ -22,15 +22,19 @@ const Login: React.FC = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex w-full flex-col items-center justify-center space-y-4 text-black"
+          className="flex w-full flex-col items-center justify-center space-y-4 text-black invalid:bg-red-900"
         >
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input placeholder="Email" {...field} />
+              <FormItem className="w-full invalid:bg-red-900">
+                <FormControl className="invalid:bg-red-900">
+                  <Input
+                    placeholder="Email"
+                    {...field}
+                    className="invalid:bg-red-900"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

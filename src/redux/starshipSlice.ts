@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { StarshipState } from "../types/types";
+import errorImg from "../assets/error-img.webp";
 
 const initialState: StarshipState = {
   starships: [],
@@ -23,7 +24,8 @@ export const fetchStarships = createAsyncThunk(
       const starshipsData = await Promise.all(
         data.results.map(async (starship: any) => {
           const id = starship.url.split("/").slice(-2, -1)[0];
-          const starshipImage = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
+          // const starshipImage = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
+          const starshipImage = errorImg;
           return { ...starship, id, starshipImage };
         }),
       );
@@ -50,7 +52,8 @@ export const fetchFilmsAndPilots = createAsyncThunk(
       const filmsData = await Promise.all(
         urls.films.map(async (filmUrl) => {
           const film = await fetchDetails(filmUrl);
-          const filmImage = `https://starwars-visualguide.com/assets/img/films/${film.episode_id}.jpg`;
+          // const filmImage = `https://starwars-visualguide.com/assets/img/films/${film.episode_id}.jpg`;
+          const filmImage = errorImg;
           return { title: film.title, episode: film.episode_id, filmImage };
         }),
       );
@@ -58,8 +61,9 @@ export const fetchFilmsAndPilots = createAsyncThunk(
       const pilotsData = await Promise.all(
         urls.pilots.map(async (pilotUrl) => {
           const pilot = await fetchDetails(pilotUrl);
-          const pilotId = pilot.url.split("/").slice(-2, -1)[0];
-          const pilotImage = `https://starwars-visualguide.com/assets/img/characters/${pilotId}.jpg`;
+          //const pilotId = pilot.url.split("/").slice(-2, -1)[0];
+          // const pilotImage = `https://starwars-visualguide.com/assets/img/characters/${pilotId}.jpg`;
+          const pilotImage = errorImg;
           return { name: pilot.name, pilotImage };
         }),
       );
