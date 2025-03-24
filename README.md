@@ -1,4 +1,4 @@
-# S7 Star Wars App
+# Star Wars App
 
 ## 📄 Description
 
@@ -14,61 +14,6 @@ The app is designed as part of a technical test for front-end developers in the 
 - Implement protected routes using authentication.
 - Practice Redux for state management.
 - Utilize Tailwind CSS for styling and Storybook for component development.
-
-<br>
-
-## 📐 Project Structure
-
-### ⭐ **Level 1**
-
-#### **Exercise 1**
-- Implement the main screen that displays a list of Star Wars ships.
-- Show key details for each ship: **Name** and **Model**.
-- Fetch the list of ships from the SWAPI.
-
-#### **Exercise 2**
-- Create a detailed view for each ship.
-- Display additional information like **Starship class**, **Crew**, **Length**, etc.
-
-#### **Exercise 3**
-- Implement pagination to load more ships by fetching data from the API (limit: 10 ships per page).
-- Add a "View More" button to load additional ships.
-
-#### **Exercise 4**
-- Modernize the site’s design to closely resemble the official Star Wars site using Tailwind CSS.
-- Add a simple navigation bar with a link to the home page.
-
-#### **Exercise 5**
-- Create a welcome screen with a button to navigate to the main ships list page.
-- Use **React Router** for navigation.
-
-#### **Exercise 6**
-- Implement a login and registration page using Firebase for user management.
-- Ensure that users cannot register with the same email twice.
-- Redirect users to the main app once logged in.
-
-#### **Exercise 7**
-- Protect the routes so that only logged-in users can access the ships list.
-- Redirect unauthenticated users to the login page.
-
----
-
-### ⭐⭐ **Level 2**
-
-#### **Exercise 8**
-- Enhance the ship detail page to include a list of pilots for each ship.
-- Display each pilot’s name in a card component.
-
-#### **Exercise 9**
-- Display the films in which the ship appeared on the ship detail page.
-- Show the film titles in a separate section.
-
----
-
-### ⭐⭐⭐ **Level 3**
-
-#### **Exercise 10**
-- Implement unit tests for at least three components using **Vitest** to ensure the app’s stability and maintainability.
 
 <br>
 
