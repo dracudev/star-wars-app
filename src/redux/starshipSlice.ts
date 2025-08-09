@@ -24,8 +24,10 @@ export const fetchStarships = createAsyncThunk(
       const starshipsData = await Promise.all(
         data.results.map(async (starship: any) => {
           const id = starship.url.split("/").slice(-2, -1)[0];
-          // const starshipImage = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
-          const starshipImage = errorImg;
+          let starshipImage = `/images/starships/${id}.webp`; // API not working, using local images
+          if (!starshipImage) {
+            starshipImage = errorImg;
+          }
           return { ...starship, id, starshipImage };
         }),
       );
@@ -52,8 +54,10 @@ export const fetchFilmsAndPilots = createAsyncThunk(
       const filmsData = await Promise.all(
         urls.films.map(async (filmUrl) => {
           const film = await fetchDetails(filmUrl);
-          // const filmImage = `https://starwars-visualguide.com/assets/img/films/${film.episode_id}.jpg`;
-          const filmImage = errorImg;
+          let filmImage = `/images/films/${film.episode_id}.webp`; // API not working, using local images
+          if (!filmImage) {
+            filmImage = errorImg;
+          }
           return { title: film.title, episode: film.episode_id, filmImage };
         }),
       );
